@@ -1,6 +1,12 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Import theme styles */
+@import "../styles/themes/minimal.css";
+@import "../styles/themes/neon-cyber.css";
+@import "../styles/themes/nature.css";
+@import "../styles/themes/luxury.css";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

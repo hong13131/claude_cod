@@ -1,0 +1,97 @@
+/* Neon Cyber Theme - Futuristic with glowing accents */
+.theme-neon-cyber {
+  --radius: 0.5rem;
+  
+  /* Dark cyberpunk base */
+  --background: oklch(0.08 0.02 280);
+  --foreground: oklch(0.92 0.05 180);
+  --card: oklch(0.12 0.03 280);
+  --card-foreground: oklch(0.92 0.05 180);
+  --popover: oklch(0.12 0.03 280);
+  --popover-foreground: oklch(0.92 0.05 180);
+  --primary: oklch(0.7 0.25 310);
+  --primary-foreground: oklch(0.05 0 0);
+  --secondary: oklch(0.2 0.05 280);
+  --secondary-foreground: oklch(0.8 0.15 180);
+  --muted: oklch(0.15 0.03 280);
+  --muted-foreground: oklch(0.6 0.08 180);
+  --accent: oklch(0.65 0.3 180);
+  --accent-foreground: oklch(0.05 0 0);
+  --destructive: oklch(0.65 0.25 0);
+  --border: oklch(0.25 0.1 280);
+  --input: oklch(0.15 0.05 280);
+  --ring: oklch(0.7 0.25 310);
+}
+
+/* Neon cyber specific styles */
+.theme-neon-cyber .cyber-glow {
+  box-shadow: 
+    0 0 5px oklch(0.7 0.25 310 / 0.5),
+    0 0 10px oklch(0.7 0.25 310 / 0.3),
+    0 0 20px oklch(0.7 0.25 310 / 0.1);
+}
+
+.theme-neon-cyber .cyber-button {
+  @apply relative overflow-hidden border border-primary/50 bg-primary/10 text-primary transition-all duration-300;
+  box-shadow: inset 0 0 10px oklch(0.7 0.25 310 / 0.1);
+}
+
+.theme-neon-cyber .cyber-button:hover {
+  @apply bg-primary/20 border-primary;
+  box-shadow: 
+    inset 0 0 10px oklch(0.7 0.25 310 / 0.2),
+    0 0 10px oklch(0.7 0.25 310 / 0.3);
+}
+
+.theme-neon-cyber .cyber-card {
+  @apply border border-primary/30 bg-card/80 backdrop-blur-sm;
+  box-shadow: 
+    0 0 20px oklch(0.7 0.25 310 / 0.1),
+    inset 0 0 20px oklch(0.12 0.03 280 / 0.5);
+}
+
+.theme-neon-cyber .cyber-heading {
+  @apply font-bold tracking-wider;
+  text-shadow: 0 0 10px oklch(0.65 0.3 180 / 0.5);
+}
+
+.theme-neon-cyber .cyber-input {
+  @apply border border-accent/50 bg-input/50 text-accent placeholder:text-muted-foreground focus:border-accent focus:ring-accent/30;
+  box-shadow: inset 0 0 10px oklch(0.15 0.05 280 / 0.5);
+}
+
+.theme-neon-cyber .cyber-accent {
+  color: oklch(0.65 0.3 180);
+  text-shadow: 0 0 5px oklch(0.65 0.3 180 / 0.5);
+}
+
+/* Animated scan lines */
+.theme-neon-cyber .cyber-scanlines::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    oklch(0.65 0.3 180 / 0.03) 50%,
+    transparent 100%
+  );
+  animation: scan 2s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Grid overlay */
+.theme-neon-cyber .cyber-grid {
+  background-image: 
+    linear-gradient(oklch(0.25 0.1 280 / 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.25 0.1 280 / 0.5) 1px, transparent 1px);
+  background-size: 20px 20px;
+}

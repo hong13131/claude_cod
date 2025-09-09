@@ -1,0 +1,65 @@
+/* Minimal Theme - Clean, spacious, and focused */
+.theme-minimal {
+  --radius: 0.25rem;
+  
+  /* Light mode - Pure minimal */
+  --background: oklch(0.99 0 0);
+  --foreground: oklch(0.1 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.1 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.1 0 0);
+  --primary: oklch(0.15 0 0);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.96 0 0);
+  --secondary-foreground: oklch(0.15 0 0);
+  --muted: oklch(0.96 0 0);
+  --muted-foreground: oklch(0.45 0 0);
+  --accent: oklch(0.96 0 0);
+  --accent-foreground: oklch(0.15 0 0);
+  --destructive: oklch(0.5 0.2 0);
+  --border: oklch(0.9 0 0);
+  --input: oklch(0.9 0 0);
+  --ring: oklch(0.15 0 0);
+}
+
+.theme-minimal.dark {
+  --background: oklch(0.05 0 0);
+  --foreground: oklch(0.95 0 0);
+  --card: oklch(0.08 0 0);
+  --card-foreground: oklch(0.95 0 0);
+  --popover: oklch(0.08 0 0);
+  --popover-foreground: oklch(0.95 0 0);
+  --primary: oklch(0.9 0 0);
+  --primary-foreground: oklch(0.05 0 0);
+  --secondary: oklch(0.15 0 0);
+  --secondary-foreground: oklch(0.9 0 0);
+  --muted: oklch(0.15 0 0);
+  --muted-foreground: oklch(0.6 0 0);
+  --accent: oklch(0.15 0 0);
+  --accent-foreground: oklch(0.9 0 0);
+  --border: oklch(0.2 0 0);
+  --input: oklch(0.2 0 0);
+  --ring: oklch(0.6 0 0);
+}
+
+/* Minimal-specific component styles */
+.theme-minimal .minimal-card {
+  @apply border-0 shadow-none bg-transparent;
+}
+
+.theme-minimal .minimal-button {
+  @apply font-normal tracking-wide transition-all duration-200;
+}
+
+.theme-minimal .minimal-heading {
+  @apply font-light tracking-tight;
+}
+
+.theme-minimal .minimal-text {
+  @apply leading-relaxed;
+}
+
+.theme-minimal .minimal-input {
+  @apply border-b border-t-0 border-l-0 border-r-0 rounded-none bg-transparent focus:border-primary;
+}
