@@ -1,0 +1,190 @@
+/* Luxury Theme - Elegant, sophisticated with gold accents */
+.theme-luxury {
+  --radius: 0.75rem;
+  
+  /* Light luxury mode */
+  --background: oklch(0.98 0.005 60);
+  --foreground: oklch(0.15 0.01 20);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.01 20);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.01 20);
+  --primary: oklch(0.3 0.08 60);
+  --primary-foreground: oklch(0.95 0.02 60);
+  --secondary: oklch(0.92 0.02 60);
+  --secondary-foreground: oklch(0.25 0.05 40);
+  --muted: oklch(0.94 0.01 60);
+  --muted-foreground: oklch(0.5 0.02 40);
+  --accent: oklch(0.6 0.15 80);
+  --accent-foreground: oklch(0.98 0.005 60);
+  --destructive: oklch(0.55 0.18 20);
+  --border: oklch(0.88 0.02 60);
+  --input: oklch(0.96 0.01 60);
+  --ring: oklch(0.6 0.15 80);
+  
+  /* Luxury-specific colors */
+  --gold: oklch(0.75 0.15 80);
+  --gold-light: oklch(0.85 0.1 80);
+  --gold-dark: oklch(0.65 0.2 75);
+  --platinum: oklch(0.85 0.01 240);
+  --pearl: oklch(0.95 0.02 60);
+}
+
+.theme-luxury.dark {
+  --background: oklch(0.08 0.02 240);
+  --foreground: oklch(0.92 0.02 60);
+  --card: oklch(0.12 0.02 240);
+  --card-foreground: oklch(0.92 0.02 60);
+  --popover: oklch(0.12 0.02 240);
+  --popover-foreground: oklch(0.92 0.02 60);
+  --primary: oklch(0.75 0.15 80);
+  --primary-foreground: oklch(0.08 0.02 240);
+  --secondary: oklch(0.2 0.02 240);
+  --secondary-foreground: oklch(0.85 0.02 60);
+  --muted: oklch(0.18 0.02 240);
+  --muted-foreground: oklch(0.6 0.02 200);
+  --accent: oklch(0.75 0.15 80);
+  --accent-foreground: oklch(0.08 0.02 240);
+  --border: oklch(0.25 0.02 240);
+  --input: oklch(0.15 0.02 240);
+  --ring: oklch(0.75 0.15 80);
+}
+
+/* Luxury-specific component styles */
+.theme-luxury .luxury-card {
+  @apply bg-card border border-border shadow-2xl;
+  background: linear-gradient(145deg, oklch(1 0 0), oklch(0.98 0.005 60));
+  box-shadow: 
+    0 20px 25px -5px oklch(0.15 0.01 20 / 0.1),
+    0 10px 10px -5px oklch(0.15 0.01 20 / 0.04),
+    inset 0 1px 0 oklch(1 0 0 / 0.5);
+}
+
+.theme-luxury .luxury-button {
+  @apply font-semibold tracking-wide transition-all duration-500;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+  box-shadow: 
+    0 4px 15px oklch(0.6 0.15 80 / 0.3),
+    inset 0 1px 0 oklch(0.85 0.1 80 / 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-luxury .luxury-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, oklch(1 0 0 / 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.theme-luxury .luxury-button:hover::before {
+  left: 100%;
+}
+
+.theme-luxury .luxury-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 25px oklch(0.6 0.15 80 / 0.4),
+    inset 0 1px 0 oklch(0.85 0.1 80 / 0.8);
+}
+
+.theme-luxury .luxury-heading {
+  @apply font-bold tracking-tight;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 1px 3px oklch(0.15 0.01 20 / 0.3);
+}
+
+.theme-luxury .luxury-input {
+  @apply border-2 border-border bg-input focus:border-accent focus:ring-accent/20;
+  box-shadow: 
+    inset 0 2px 4px oklch(0.15 0.01 20 / 0.06),
+    0 1px 0 oklch(1 0 0 / 0.5);
+  transition: all 0.3s ease;
+}
+
+.theme-luxury .luxury-input:focus {
+  box-shadow: 
+    inset 0 2px 4px oklch(0.15 0.01 20 / 0.06),
+    0 0 0 3px var(--gold) / 0.1,
+    0 1px 0 oklch(1 0 0 / 0.5);
+}
+
+/* Gold trim effect */
+.theme-luxury .luxury-trim::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light));
+}
+
+/* Marble texture */
+.theme-luxury .luxury-marble {
+  background: 
+    radial-gradient(circle at 20% 20%, oklch(0.9 0.02 80 / 0.3) 0%, transparent 20%),
+    radial-gradient(circle at 80% 80%, oklch(0.85 0.03 60 / 0.2) 0%, transparent 20%),
+    radial-gradient(circle at 40% 70%, oklch(0.92 0.01 100 / 0.3) 0%, transparent 15%),
+    linear-gradient(145deg, oklch(0.98 0.01 60), oklch(0.96 0.02 80));
+}
+
+/* Shimmer effect */
+.theme-luxury .luxury-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-luxury .luxury-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--gold) / 0.1 25%,
+    var(--gold) / 0.2 50%,
+    var(--gold) / 0.1 75%,
+    transparent 100%
+  );
+  animation: shimmer 3s infinite ease-in-out;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+
+/* Elegant border pattern */
+.theme-luxury .luxury-border {
+  border-image: linear-gradient(135deg, var(--gold-dark), var(--gold-light)) 1;
+  background: 
+    linear-gradient(var(--card), var(--card)) padding-box,
+    linear-gradient(135deg, var(--gold-dark), var(--gold-light)) border-box;
+}
+
+/* Luxury typography */
+.theme-luxury .luxury-serif {
+  font-family: 'Times New Roman', serif;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+}
+
+.theme-luxury .luxury-monogram {
+  @apply text-2xl font-bold;
+  color: var(--gold);
+  text-shadow: 
+    1px 1px 2px oklch(0.15 0.01 20 / 0.3),
+    0 0 10px var(--gold) / 0.2;
+}
