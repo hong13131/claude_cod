@@ -191,8 +191,8 @@ export default function HeaderClient({ authButton }: HeaderClientProps) {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
-              <span className="text-xl">🇰🇷</span>
-              <span className="text-lg font-bold text-gray-900">KoreaNomads</span>
+              <span className="text-lg sm:text-xl">🇰🇷</span>
+              <span className="text-sm sm:text-lg font-bold text-gray-900">KoreaNomads</span>
             </Link>
 
             {/* Mobile Actions */}

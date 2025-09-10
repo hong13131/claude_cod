@@ -1,15 +1,17 @@
 import { notFound } from 'next/navigation';
 import { getCityById } from '@/lib/data';
+import Header from '@/components/layout/Header';
 import type { Metadata } from 'next';
 
 interface CityDetailPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: CityDetailPageProps): Promise<Metadata> {
-  const city = getCityById(params.slug);
+  const { slug } = await params;
+  const city = getCityById(slug);
   
   if (!city) {
     return {
@@ -24,15 +26,18 @@ export async function generateMetadata({ params }: CityDetailPageProps): Promise
   };
 }
 
-export default function CityDetailPage({ params }: CityDetailPageProps) {
-  const city = getCityById(params.slug);
+export default async function CityDetailPage({ params }: CityDetailPageProps) {
+  const { slug } = await params;
+  const city = getCityById(slug);
 
   if (!city) {
     notFound();
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <>
+      <Header />
+      <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <div className="relative bg-gradient-to-r from-blue-600 to-purple-700 text-white">
         <div className="container mx-auto px-4 py-16">
@@ -195,6 +200,7 @@ export default function CityDetailPage({ params }: CityDetailPageProps) {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

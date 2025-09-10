@@ -165,7 +165,7 @@ export default function StatsCharts() {
                   cx="50%"
                   cy="50%"
                   labelLine={false}
-                  label={({ category, count, percent }) => `${category}: ${count}개 (${(percent * 100).toFixed(1)}%)`}
+                  label={false}
                   outerRadius={80}
                   fill="#8884d8"
                   dataKey="count"
