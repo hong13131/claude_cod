@@ -1,8 +1,29 @@
+'use client';
+
 import React from 'react';
 import CityCard from '@/components/city/CityCard';
+import { City } from '@/lib/types';
 import { featuredCities } from '@/lib/data';
 
-export default function FeaturedCities() {
+interface FeaturedCitiesProps {
+  filteredCities?: City[];
+  showAllCities?: boolean;
+}
+
+export default function FeaturedCities({ filteredCities, showAllCities = false }: FeaturedCitiesProps) {
+  // Use filtered cities if provided, otherwise use featured cities
+  const displayCities = showAllCities 
+    ? (filteredCities || featuredCities)
+    : featuredCities;
+
+  const sectionTitle = showAllCities && filteredCities
+    ? `🔍 검색 결과 (${filteredCities.length}개)`
+    : '🌟 이달의 추천 도시 🌟';
+
+  const sectionDescription = showAllCities && filteredCities
+    ? '필터 조건에 맞는 도시들을 찾았습니다'
+    : '디지털 노마드들에게 가장 인기 있는 한국의 도시들을 만나보세요';
+
   return (
     <section className="bg-gray-50 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -10,19 +31,30 @@ export default function FeaturedCities() {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            🌟 이달의 추천 도시 🌟
+            {sectionTitle}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            디지털 노마드들에게 가장 인기 있는 한국의 도시들을 만나보세요
+            {sectionDescription}
           </p>
         </div>
 
         {/* Cities Grid - Responsive */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {featuredCities.map((city) => (
-            <CityCard key={city.id} city={city} />
-          ))}
-        </div>
+        {displayCities.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 mb-12">
+            {displayCities.map((city) => (
+              <CityCard key={city.id} city={city} />
+            ))}
+          </div>
+        ) : showAllCities && (
+          <div className="text-center py-12">
+            <div className="text-gray-500 text-lg mb-4">
+              🔍 조건에 맞는 도시를 찾을 수 없습니다
+            </div>
+            <p className="text-gray-400">
+              다른 필터 조건을 시도해보세요
+            </p>
+          </div>
+        )}
 
         {/* More Cities Section */}
         <div className="text-center">

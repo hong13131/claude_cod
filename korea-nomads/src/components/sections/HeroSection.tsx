@@ -37,18 +37,20 @@ export default function HeroSection() {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-2xl mx-auto">
-            <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-2xl mx-auto">
+            <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg">
               🎯 나에게 맞는 도시 찾기
             </Button>
             
-            <Button variant="outline" size="lg" className="w-full sm:w-auto border-2 border-blue-200 hover:border-blue-400 px-8 py-4 text-lg">
-              📊 도시 비교하기
-            </Button>
-            
-            <Button variant="outline" size="lg" className="w-full sm:w-auto border-2 border-purple-200 hover:border-purple-400 px-8 py-4 text-lg">
-              👥 커뮤니티 참여
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto border-2 border-blue-200 hover:border-blue-400 px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base">
+                📊 도시 비교
+              </Button>
+              
+              <Button variant="outline" size="lg" className="w-full sm:w-auto border-2 border-purple-200 hover:border-purple-400 px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base">
+                👥 커뮤니티
+              </Button>
+            </div>
           </div>
         </div>
 

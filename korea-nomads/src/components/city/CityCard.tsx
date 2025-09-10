@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { City } from '@/lib/types';
@@ -99,14 +100,16 @@ export default function CityCard({ city }: CityCardProps) {
 
       <CardFooter className="px-6 pt-0">
         <div className="flex w-full gap-2">
-          <Button 
-            className="flex-1" 
-            size="sm"
-            variant="default"
-          >
-            <Eye className="w-4 h-4 mr-1" />
-            상세
-          </Button>
+          <Link href={`/city/${city.id}`} className="flex-1">
+            <Button 
+              className="w-full" 
+              size="sm"
+              variant="default"
+            >
+              <Eye className="w-4 h-4 mr-1" />
+              상세
+            </Button>
+          </Link>
           
           <Button 
             variant="outline" 
