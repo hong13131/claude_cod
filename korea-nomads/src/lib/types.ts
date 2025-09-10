@@ -24,6 +24,20 @@ export interface City {
   };
   tags: string[];
   lastUpdated: string;
+  description?: string;
+  highlights?: string[];
+  images?: string[];
+  climate?: {
+    temperature: string;
+    humidity: string;
+    season: string;
+  };
+  livingCost?: {
+    accommodation: number;
+    food: number;
+    transportation: number;
+    utilities: number;
+  };
 }
 
 export interface FilterState {
@@ -41,4 +55,27 @@ export interface TrendingData {
 export interface PopularReview {
   title: string;
   rating: number;
+}
+
+export interface CityReview {
+  id: string;
+  cityId: string;
+  author: string;
+  rating: number;
+  title: string;
+  content: string;
+  pros: string[];
+  cons: string[];
+  duration: string;
+  createdAt: string;
+  helpful: number;
+  tags: string[];
+}
+
+export interface SearchParams {
+  query?: string;
+  budget?: string[];
+  region?: string[];
+  style?: string[];
+  sort?: 'popularity' | 'rating' | 'cost_low' | 'cost_high';
 }
